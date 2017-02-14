@@ -1,0 +1,106 @@
+.extra-container{
+    display: block;
+    text-align: center;
+}
+
+.extra-container .left-container{
+    float: left;
+    max-width: 45%;
+}
+
+.extra-container .right-container{
+    float: right;
+    max-width: 45%;
+}
+
+.extra-container .center-container{
+    clear: both;
+    max-width: 45%;
+    display: block;
+}
+
+.current_slide{
+    display: block;
+}
+.current_slide_btn{
+    position: fixed;
+    height: 30px;
+    max-width: 150px;
+    background: #e7ad52;
+    top: 90%;
+    bottom: 10%;
+    color: black;
+    border-radius: 20px;
+}
+
+.footer{
+    position: fixed;
+    vertical-align: bottom;
+    bottom: 0;
+    top: 100%;
+    right: 44%;
+}
+
+.reveal .figure_caption{
+    font-size: 15px;
+    font-family: "B Zar", serif;
+    margin-top: -1em;
+    margin-bottom: 1em;
+}
+
+.reveal table{
+    direction: rtl;
+    font-size: 25px;
+}
+
+.reveal .slide-number{
+    font-size: 20px;
+    right: 95% ;
+    bottom: 2%;
+}
+
+.reveal .math-block{
+    text-align: center;
+    font-size: 80px;
+}
+
+.reveal .math-inline{
+    font-size: 80px;
+}
+
+.reveal .ref{
+    font-family: Georgia, serif;
+    font-size: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.reveal .cite{
+    direction: ltr;
+    display: inline-block;
+    /*font-family: "Georgia";*/
+    font-size: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#my_main_logo{
+    max-width: 30%;
+    max-height: 30%;
+    align-self: center;
+    border: none;
+    background: none;
+    display: block;
+    left: 35%;
+}
+
+#gameBtn{
+    display: block;
+    color: black;
+    font-size: xx-large;
+}
+
+#game-img{
+    width: 500px;
+    height: 500px;
+}

@@ -1,0 +1,974 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>نزول تصادفی در امتداد گرادیان</title>
+<link rel="stylesheet" href="css/Bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="css/Bootstrap/css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/extra/snippet.css">
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/night.css">
+<link rel="stylesheet" href="css/extra/layout_utility.css">
+<script  src="js/jquery.js"></script>
+<script src="js/game.js"></script>
+<!-- Theme used for syntax highlighting of code -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<!-- to support bread crumbs -->
+<link rel="stylesheet" href="plugin/reveal.js-breadcrumb/breadcrumb.css">
+<!-- Printing and PDF exports -->
+<script>
+	var link = document.createElement( 'link' );
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+	document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+<script src="js/reveal.js"></script>
+<!--Conclusion Slider-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="css/Slider/ninja-slider.css" rel="stylesheet" type="text/css" />
+<link href="css/Slider/ninja-slider-scene.css" rel="stylesheet" type="text/css" />
+<link href="css/Slider/ninja-slider-sentence.css" rel="stylesheet" type="text/css" />
+<script src="js/Slider/ninja-slider.js" type="text/javascript"></script>
+<script src="js/Slider/ninja-slider-scene.js" type="text/javascript"></script>
+<script src="js/Slider/ninja-slider-sentence.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+		<!--FIRST PAGE-->
+		<section data-nobreadcrumb="" data-transition="fade" data-background="#001111">
+			<div class="row">
+				<img id="my_main_logo"  data-src="./Images/aut_logo_1.png" class="col-lg-5">
+			</div>
+			<h2>
+				نزول تصادفی در امتداد گرادیان
+			</h2>
+			<div class="extra-container">
+				<blockquote class="right-container">
+					ارائه دهنده
+					<br/>
+					احمد اسدی
+				</blockquote>
+				<blockquote class="left-container">
+					استاد درس
+					<br/>
+					دکتر امیرمزلقانی
+				</blockquote>
+			</div>
+			<aside class="footer">
+				بهمن‌ماه ۱۳۹۵
+			</aside>
+		</section>
+		<section id="فهرست" data-transition="fade" data-background="#003333" data-state="chapter_intro">
+			<h3>
+				فهرست مطالب
+			</h3>
+			<ul>
+				<li class="fragment zoom-in">مقدمه و تعریف مساله</li>
+				<li class="fragment zoom-in">نزول در امتداد گرادیان</li>
+				<li class="fragment zoom-in">نزول تصادفی در امتداد گرادیان</li>
+				<li class="fragment zoom-in">آزمایشات</li>
+				<li class="fragment zoom-in">جمع‌بندی</li>
+			</ul>
+		</section>
+		<section data-background="#003333"  data-state="chapter_definition">
+			<section>
+				<h3>مقدمات</h3>
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">عملکرد‌های مختلف الگوریتم‌ها در مسائل مقیاس بزرگ و مقیاس کوچک</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2">عملکرد یکسان روش‌های مختلف در مسائل مقیاس بزرگ</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="3"><span class="fragment highlight-current-green"
+																			   data-fragment-index="3">اهمیت‌یافتن سرعت پردازشی نسبت به دقت تشخیص </span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="4"><span class="fragment highlight-current-green"
+																			   data-fragment-index="4">عملکرد بهتر روش‌های تصادفی در مقایسه با روش‌های استاندارد</span></li>
+				</ul>
+			</section>
+			<section>
+				<h3>مقدمات</h3>
+				<blockquote>معرفی نمادها</blockquote>
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1">
+						داده‌های آموزشی به شکل دوتایی
+						<math-inline style="font-size: 60px;">
+						$z = (x,y)$
+						</math-inline>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="2">
+
+						<math-inline style="font-size: 60px;">
+						$x \in R^n$
+						</math-inline>
+						بردار ورودی و
+						<math-inline style="font-size: 60px;">
+						$y \in R$
+						</math-inline>
+						خروجی مطلوب
+
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="3">
+						تعریف تابع خطا به صورت
+						<math-inline style="font-size: 60px;">
+						$ l (\hat{y},y)$
+						</math-inline>
+
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="4">
+						یک مجموعه تابع
+						<math-inline style="font-size: 60px;">
+							$F$
+						</math-inline>
+						شامل
+						<math-inline style="font-size: 60px;">
+						$f_w \in F$
+						</math-inline>
+						(توابع نگاشت به فضای ویژگی‌ها)
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="5">
+						<blockquote class="extra-container math-block" style="font-size: 70px">
+$
+minimize \>\>\> Q(z, w) = l(f_w(z), y)\\
+subject\>to \>\>\>f_w \in F
+$
+						</blockquote>
+					</li>
+				</ul>
+			</section>
+		</section>
+		<section data-background="#005555"  data-state="chapter_Overview">
+			<section data-state="chapter_scene" id="درک صحنه">
+				<h3>نزول در امتداد گرادیان</h3>
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">شروع از یک مقدار ممکن
+						<span class="math-inline" style="font-size: 60px">$w_0$</span></span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2">ارائه یک رابطه برای به‌روزرسانی وزن‌ها</span></li>
+					<li class="fragment zoom-in" data-fragment-index="3"><span class="fragment highlight-current-green"
+																			   data-fragment-index="3">بردار جهت، منفی گرادیان تابع بر حسب وزن‌ها</span></li>
+				</ul>
+				
+			</section>
+			<section>
+				<h3>نزول در امتداد گرادیان</h3>
+				<blockqute data-fragment-index="1">
+					رابطه بروزرسانی وزن‌ها:
+					<br/>
+					<blockquote class="math-block">
+						$
+						w^{t+1} = w^t - \eta \frac{1}{N}\Sigma_{i=1}^N \nabla_w Q(z_i,w^t)
+						$
+					</blockquote>
+
+				</blockqute>
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2">نرخ یادگیری: <span class="math-inline">$\eta$</span></span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="3"><span class="fragment highlight-current-green"
+																			   data-fragment-index="3">ضریب میانگین‌گیری: <span class="math-inline">$\frac{1}{N}$</span></span></li>
+					<li class="fragment zoom-in" data-fragment-index="4"><span class="fragment highlight-current-green"
+																			   data-fragment-index="4">تولید نقاط اولیه به صورت تصادفی</span></li>
+				</ul>
+			</section>
+			<section>
+				<h3>نزول در امتداد گرادیان _ نسخه ارتقا یافته مرتبه دوم</h3>
+				<blockqute data-fragment-index="1">
+					رابطه بروزرسانی وزن‌ها
+					<br/>
+					<blockquote class="math-block">
+						$
+						w^{t+1} = w^t - \Gamma^t \frac{1}{N}\Sigma_{i=1}^N \nabla_w Q(z_i,w^t)
+						$
+					</blockquote>
+
+				</blockqute>
+				<ul style="width: 60%">
+					<li class="fragment zoom-in" data-fragment-index="01"><span class="fragment highlight-current-green"
+																				data-fragment-index="01">جایگزینی
+						<span class="math-inline">$\eta$</span>
+						با
+						<span class="math-inline">$\Gamma^t$</span>
+					</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="02"><span class="fragment highlight-current-green"
+																				data-fragment-index="02">
+						<span class="math-inline">$\Gamma^t$</span>
+						یک تابع مثبت تعریف‌شده</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="03"><span class="fragment highlight-current-green"
+																				data-fragment-index="03">
+						<span class="math-inline">$\Gamma^t$</span>
+						مجانب معکوس ماتریس هسین</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="04"><span class="fragment highlight-current-green"
+																				data-fragment-index="04">یک نسخه تغییر یافته از روش نیوتن</span></li>
+				</ul>
+			</section>
+			<section>
+				<h3>مقایسه دو روش استاندارد</h3>
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-orange"
+																			   data-fragment-index="1">الگوریتم مرتبه اول در شرایط تعریف شده، به طور خطی به مقدار بهینه همگراست</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-orange"
+																			   data-fragment-index="2">الگوریتم مرتبه دوم در شرایط تعریف شده، به طور کوادراتیک به مقدار بهینه همگراست</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="3"><span class="fragment highlight-current-orange"
+																			   data-fragment-index="3">در صورتی‌که ماتریس <span
+							class="math-inline">$\Gamma^t$</span> دقیقا با معکوس ماتریس هسین برابر باشد، الگوریتم مرتبه دوم در یک تکرار به مقدار بهینه می‌رسد</span></li>
+				</ul>
+			</section>
+		</section>
+		<section data-background="#004455">
+			<section>
+				<h3>
+					نزول تصادفی در امتداد گرادیان
+				</h3>
+				<blockquote>
+					رابطه جدید بروزرسانی وزن‌ها
+					<div class="math-block">
+						$
+						w^{t+1} = w^t - \lambda^t \nabla_w Q(Z_i,w^t)
+						$
+					</div>
+				</blockquote>
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">نسخه ساده‌سازی شده از روش استاندارد</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2">استفاده از خطای یک داده به صورت تصادفی به جای میانگین تمام خطاها</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="3"><span class="fragment highlight-current-green"
+																			   data-fragment-index="3">امید ریاضی رابطه بروزرسانی تصادفی برابر رابطه بروزرسانی استاندارد</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="4"><span class="fragment highlight-current-green"
+																			   data-fragment-index="4">انتظار رفتار مشابه</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="5"><span class="fragment highlight-current-green"
+																			   data-fragment-index="5">ایجاد نویز جزئی در محاسبات</span></li>
+				</ul>
+			</section>
+			<section>
+				<h3>
+					نزول تصادفی در امتداد گرادیان
+				</h3>
+				<blockquote>
+					شروط لازم و کافی برای همگرایی
+					<div class="math-inline">$\Sigma_t \lambda^t = \infty$</div>
+					<div class="math-inline">$\Sigma_t (\lambda^t)^2 < \infty$</div>
+				</blockquote>
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">وجود نویز می‌تواند باعث ناپایداری شود</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2">نرخ یادگیری بزرگ، نوسان شدید وزن‌ها</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="3"><span class="fragment highlight-current-green"
+																			   data-fragment-index="3">نرخ یادگیری خیلی کوچک، حرکت کند الگوریتم</span></li>
+					<li class="fragment zoom-in" data-fragment-index="4"><span class="fragment highlight-current-green"
+																			   data-fragment-index="4">کاهش تدریجی نرخ یادگیری، متناسب با وارون زمان</span></li>
+				</ul>
+			</section>
+			<section>
+				<h3>
+					نزول تصادفی در امتداد گرادیان ـ نسخه ارتقا یافته مرتبه دوم
+				</h3>
+				<blockquote>
+					رابطه جدید بروزرسانی وزن‌ها
+					<div class="math-block">
+						$
+						w^{t+1} = w^t - \lambda^t \Gamma^t \nabla_w Q(Z_i,w^t)
+						$
+					</div>
+				</blockquote>
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">استفاده از ایده مشابه در روش استاندارد</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-red"
+																			   data-fragment-index="2">بهبود قابل توجهی ایجاد نمی‌کند</span>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>
+					فرآیند یادگیری با روش نزول تصادفی در امتداد گرادیان
+				</h3>
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">میزان تعمیم‌پذیری مدل، امید تجربی ریسک</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2"><span
+							class="math-inline">$E(f) = \int l(f(x), y) P(z) dz$</span></span></li>
+					<li class="fragment zoom-in" data-fragment-index="3"><span class="fragment highlight-current-green"
+																			   data-fragment-index="3">کارایی مدل روی مجموعه آموزشی</span></li>
+					<li class="fragment zoom-in" data-fragment-index="4"><span class="fragment highlight-current-green"
+																			   data-fragment-index="4"><span
+							class="math-inline">$E_n(f) = \frac{1}{n}\Sigma_{i=1}^n l(f(x_i), y_i) $</span></span></li>
+				</ul>
+			</section>
+			<section>
+				<h3>
+					فرآیند یادگیری با روش نزول تصادفی در امتداد گرادیان
+				</h3>
+				<ul style="width: 90%">
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">
+						بهترین تابع نگاشت ممکن
+						<span class="math-inline">$f^* = argmin_fE(f)$</span>
+					</span></li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2">
+						بهترین تابع نگاشت موجود در مجموعه توابع تعریف شده:
+						<span class="math-inline">$ f^*_F = argmin_{f\in F} E(f) $</span>
+					</span></li>
+					<li class="fragment zoom-in" data-fragment-index="3"><span class="fragment highlight-current-green"
+																			   data-fragment-index="3">
+						بهترین تابع در مجموعه توابع با کم‌ترین امید تجربی ریسک
+						<span class="math-inline">$ f_n = argmin_{f\in F} E_n(f)  $</span>
+					</span></li>
+					<li class="fragment zoom-in" data-fragment-index="4"><span class="fragment highlight-current-green"
+																			   data-fragment-index="4">
+						پیدا کردن <span class="math-inline">$ f_n $</span> بسیار زمان‌بر است
+					</span></li>
+				</ul>
+			</section>
+			<section>
+				<h3>
+					 فرآیند یادگیری با روش نزول تصادفی در امتداد گرادیان
+				</h3>
+				<ul style="width: 50%">
+					<li class="fragment zoom-in" data-fragment-index="5"><span class="fragment highlight-current-green"
+																			   data-fragment-index="5">
+						پیدا کردن <span class="math-inline">$\tilde{f_n}$</span> به طوری‌که به حد از پیش تعیین شده‌ای تابع را بهبود بخشد
+					</span></li>
+					<li class="fragment zoom-in" data-fragment-index="6"><span class="fragment highlight-current-green"
+																			   data-fragment-index="6">
+						<span class="math-inline">
+							$
+							E_n(\tilde{f_n}) < E_n(f_n) + \rho
+							$
+						</span>
+					</span></li>
+				</ul>
+			</section>
+			
+			<section>
+				<h3>
+					فرآیند یادگیری با روش نزول تصادفی در امتداد گرادیان
+				</h3>
+				<blockquote>
+					تعریف تابع خطا - خطای تقریب
+					<div class="math-block">$ \epsilon_{app} = E[E(f^∗_F) − E(f^∗)]$</div>
+				</blockquote>
+				
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">دقت تخمین تابع نگاشت بهینه توسط توابع موجود در مجموعه توابع</span></li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2">کاهش خطا با افزایش تعداد توابع موجود در مجموعه</span></li>
+				</ul>
+				
+			</section>
+
+
+			<section>
+				<h3>
+					فرآیند یادگیری با روش نزول تصادفی در امتداد گرادیان
+				</h3>
+				<blockquote>
+					تعریف تابع خطا - خطای تخمین
+					<div class="math-block">$ \epsilon_{est} = E[ E(f_n) - E(f^∗_F)]$</div>
+				</blockquote>
+
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">میزان مناسب‌بودن تخمین خطای تجربی نسبت به خطای واقعی</span></li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2">کاهش خطا با کاهش تعداد توابع موجود در مجموعه یا افزایش داده‌های آموزشی</span></li>
+				</ul>
+
+			</section>
+
+
+			<section>
+				<h3>
+					فرآیند یادگیری با روش نزول تصادفی در امتداد گرادیان
+				</h3>
+				<blockquote>
+					تعریف تابع خطا - خطای بهینه‌سازی
+					<div class="math-block">$ \epsilon_{opt} = E[E(\tilde{f_n}) − E(f_n)]$</div>
+				</blockquote>
+
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">میزان خطای بهینه‌سازی</span></li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2">کاهش خطا با افزایش تعداد تکرارها</span></li>
+				</ul>
+
+			</section>
+
+			<section>
+				<h3>
+					فرآیند یادگیری با روش نزول تصادفی در امتداد گرادیان
+				</h3>
+				<blockquote>
+					مساله بهینه‌سازی نهایی
+					<div class="math-block">
+						$
+						minimze \>\>\> \epsilon = \epsilon_{app} + \epsilon_{est} + \epsilon_{opt} \\
+						subject\>to \>\>\> n \leq n_{max} \wedge T(F,\rho,n) \leq T_{max}
+						$
+					</div>
+				</blockquote>
+				<ul style="width: 50%">
+					<li class="fragment zoom-in" data-fragment-index="1"><span class="fragment highlight-current-green"
+																			   data-fragment-index="1">حداکثر تعداد داده‌های آموزشی:
+						<span class="math-inline">$ n_{max}$</span>
+					</span>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="2"><span class="fragment highlight-current-green"
+																			   data-fragment-index="2">حداکثر زمان پردازش: <span
+							class="math-inline">$T_{max} $</span></span></li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>فرآیند یادگیری با روش نزول تصادفی در امتداد گرادیان</h3>
+				<ul>
+					<li class="fragment zoom-in" data-fragment-index="1">در مسائل مقیاس کوچک:
+						<ul>
+							<li class="fragment zoom-in" data-fragment-index="2"><span
+									class="fragment highlight-current-green" data-fragment-index="2">محدودیت اساسی تعداد داده‌هاست</span>
+							</li>
+							<li class="fragment zoom-in" data-fragment-index="3"><span
+									class="fragment highlight-current-green" data-fragment-index="3"><span
+									class="math-inline">$ \rho \rightarrow 0 $</span> آنگاه <span class="math-inline">$ \epsilon_{app} \rightarrow 0$</span></span></li>
+							<li class="fragment zoom-in" data-fragment-index="4"><span
+									class="fragment highlight-current-green" data-fragment-index="4">
+								<span class="math-inline">$n = n_{max}$</span> آنگاه
+								بهینه‌سازی خطای تخمین
+							</span></li>
+						</ul>
+					</li>
+					<li class="fragment zoom-in" data-fragment-index="5">در مسائل مقیاس بزرگ:
+						<ul>
+							<li class="fragment zoom-in" data-fragment-index="6"><span
+									class="fragment highlight-current-green" data-fragment-index="6">محدودیت اساسی زمان پردازش است</span>
+							</li>
+							<li class="fragment zoom-in" data-fragment-index="7"><span
+									class="fragment highlight-current-green" data-fragment-index="7">تعیین مقادیر پارامترها بسته به نوع مساله</span></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+		</section>
+		<!--<section data-background="#003333" data-state="chapter_conclusion">-->
+			<!--<h3>-->
+				<!--آزمایشات و جمع‌بندی-->
+			<!--</h3>-->
+			<!--&lt;!&ndash;start&ndash;&gt;-->
+			<!--<div id="ninja-slider-scene">-->
+				<!--<div class="slider-inner">-->
+					<!--<ul style="width: 100%; height: 100%;">-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_scene_mathods.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_feat_based.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_bayes.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_generative.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_mrf.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_crf.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_ann.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_rcnn.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_rcnn_res.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_li1.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<a class="ns-img" href="Imgs/Slider/pic_li1_res.png"></a>-->
+							<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+						<!--</li>-->
+					<!--</ul>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--&lt;!&ndash;end&ndash;&gt;-->
+		<!--</section>-->
+		</section>
+		<section data-background="#224466"  data-state="chapter_sentence">
+			<section>
+				<h3>آزمایشات و جمع‌بندی</h3>
+				<blockquote>رفتار مجانبی الگوریتم‌های مختلف</blockquote>
+				<img src="Images/asymptTable.png" alt="">
+			</section>
+			<section>
+				<h3>آزمایشات و جمع‌بندی</h3>
+				<blockquote>مقایسه روش با دسته‌بندی‌کننده ماشین بردار پشتیبان</blockquote>
+				<img src="Images/results1.png" alt="">
+			</section>
+			<section>
+				<h3>آزمایشات و جمع‌بندی</h3>
+				<blockquote>مقایسه نسخه‌های مختلف الگوریتم با یکدیگر</blockquote>
+				<img src="Images/results2.png" alt="">
+			</section>
+			<section>
+				<h3>آزمایشات و جمع‌بندی</h3>
+				<blockquote>مقایسه نسخه‌های مختلف الگوریتم با یکدیگر</blockquote>
+				<img src="Images/results3.png" alt="">
+			</section>
+		</section>
+		<!--<section data-background="#004455">-->
+			<!--<section>-->
+				<!--<h3>-->
+					<!--شبکه‌های عصبی بازگشتی-->
+				<!--</h3>-->
+				<!--<p>-->
+<!--<span class="fragment zoom-in" data-fragment-index="1">-->
+<!--یک شبکه عصبی پیش‌رو بسیار عمیق-->
+<!--</span>-->
+				<!--</p>-->
+				<!--<p class="fragment" data-fragment-index="2">-->
+<!--<span class="fragment highlight-blue" data-fragment-index="2">-->
+<!--ناپایداری روش پس‌انتشار خطا-->
+<!--</span>-->
+				<!--</p>-->
+				<!--<p class="fragment" data-fragment-index="3">-->
+<!--<span class="fragment highlight-orange" data-fragment-index="3">-->
+<!--عدم استفاده از سال‌های 1980 تا 2011-->
+<!--</span>-->
+				<!--</p>-->
+				<!--<figure class="fragment zoom-in" data-fragment-index="1">-->
+					<!--<img src="Imgs/rnn1.png" style="width: 80%;">-->
+					<!--<figcaption class="figure_caption">-->
+						<!--شکل 15. نمای کلی یک شبکه عصبی بازگشتی، به عنوان یک شبکه عصبی پیش‌رو عمیق-->
+					<!--</figcaption>-->
+				<!--</figure>-->
+			<!--</section>-->
+		<!--</section>-->
+		<!--<section data-background="#005555">-->
+			<!--<section>-->
+				<!--<h3>-->
+					<!--ارائه مدل کامل-->
+				<!--</h3>-->
+				<!--<div class="extra-container">-->
+					<!--<blockquote class="left-container" data-fragment-index="1">-->
+						<!--<ul>-->
+							<!--<li class="fragment" data-fragment-index="2"><span >-->
+	<!--توسط لی و همکارانش-->
+	<!--<span class="cite">-->
+		<!--[13]-->
+	<!--</span>-->
+<!--</span>-->
+							<!--</li>-->
+							<!--<li class="fragment" data-fragment-index="3"><span class="fragment highlight-blue" data-fragment-index="3">در سال 2015</span></li>-->
+							<!--<li class="fragment" data-fragment-index="4"><span-->
+									<!--class="fragment highlight-green" data-fragment-index="4">استفاده از تصاویر و توصیف‌های آماده</span></li>-->
+							<!--<li class="fragment" data-fragment-index="5"><span class="fragment highlight-green" data-fragment-index="5">استخراج حاشیه‌نویسی نواحی تصویر</span></li>-->
+							<!--<li class="fragment" data-fragment-index="6"><span-->
+									<!--class="fragment highlight-green" data-fragment-index="6">جملات توصیفی کامل</span></li>-->
+							<!--<li class="fragment" data-fragment-index="7"><span-->
+									<!--class="fragment highlight-green" data-fragment-index="7">نرخ ترجیح جملات بالاتر نسبت به کارهای قبلی</span></li>-->
+							<!--<li class="fragment" data-fragment-index="8"><span class="fragment highlight-green" data-fragment-index="8">ارائه مدل ترکیبی</span></li>-->
+						<!--</ul>-->
+					<!--</blockquote>-->
+					<!--<figure class="right-container" data-fragment-index="1">-->
+						<!--<img src="Imgs/li1.png" style="width: 440px;"/>-->
+						<!--<figcaption class="figure_caption">-->
+<!--<span class="cite">-->
+<!--[13]-->
+<!--</span>-->
+							<!--شکل 18. صفحه نخست مقاله-->
+						<!--</figcaption>-->
+					<!--</figure>-->
+				<!--</div>-->
+			<!--</section>-->
+			<!--<section>-->
+				<!--<h3>-->
+					<!--ارائه مدل کامل-->
+				<!--</h3>-->
+				<!--<ol>-->
+					<!--<li class="fragment zoom-in">-->
+						<!--آموزش شبکه کانولوشنی با استفاده از عبارات موجود در مجموعه‌داده و مدل میدان تصادفی مارکف-->
+					<!--</li>-->
+				<!--</ol>-->
+				<!--<figure class="fragment zoom-in">-->
+					<!--<img src="Imgs/model1.png" style="width: 50%;">-->
+					<!--<figcaption class="figure_caption">-->
+<!--<span class="cite">-->
+<!--[13]-->
+<!--</span>-->
+						<!--شکل 19. آموزش پارامترهای بخش استخراج ویژگی-->
+					<!--</figcaption>-->
+				<!--</figure>-->
+			<!--</section>-->
+			<!--<section>-->
+				<!--<h3>-->
+					<!--ارائه مدل کامل-->
+				<!--</h3>-->
+				<!--<ol start="2">-->
+					<!--<li class="fragment zoom-in">-->
+						<!--تولید جمله با استفاده از شبکه عصبی بازگشتی-->
+						<!--<ul>-->
+							<!--<li class="fragment zoom-in">-->
+								<!--تولید احتمال شرطی کلمه بعدی به شرط کلمات قبلی و بردار معنایی-->
+							<!--</li>-->
+						<!--</ul>-->
+					<!--</li>-->
+				<!--</ol>-->
+				<!--<figure>-->
+					<!--<img src="Imgs/model2.png" style="width: 60%;">-->
+					<!--<figcaption class="figure_caption">-->
+<!--<span class="cite">-->
+<!--[13]-->
+<!--</span>-->
+						<!--شکل 20. شبکه بازگشتی تولید جمله-->
+					<!--</figcaption>-->
+				<!--</figure>-->
+			<!--</section>-->
+			<!--<section>-->
+				<!--<h3>-->
+					<!--ارائه مدل کامل-->
+				<!--</h3>-->
+				<!--<blockquote class="fragment zoom-in" data-fragment-index="1">-->
+					<!--نتایج حاشیه‌نویسی بخش‌های مختلف تصویر-->
+				<!--</blockquote>-->
+				<!--<figure class="fragment zoom-in" data-fragment-index="1">-->
+					<!--<img src="Imgs/model3.png" style="width: 55%;">-->
+					<!--<figcaption class="figure_caption">-->
+<!--<span class="cite">-->
+<!--[13]-->
+<!--</span>-->
+						<!--شکل 21. حاشیه‌نویسی بخش‌های مختلف تصویر-->
+					<!--</figcaption>-->
+				<!--</figure>-->
+			<!--</section>-->
+			<!--&lt;!&ndash;<section>&ndash;&gt;-->
+			<!--&lt;!&ndash;<h3>&ndash;&gt;-->
+			<!--&lt;!&ndash;مدل مورد استفاده&ndash;&gt;-->
+			<!--&lt;!&ndash;</h3>&ndash;&gt;-->
+			<!--&lt;!&ndash;<blockquote class="fragment zoom-in">&ndash;&gt;-->
+			<!--&lt;!&ndash;نتایج &ndash;&gt;-->
+			<!--&lt;!&ndash;</blockquote>&ndash;&gt;-->
+			<!--&lt;!&ndash;<figure class="fragment zoom-in" data-fragment-index="1">&ndash;&gt;-->
+			<!--&lt;!&ndash;<img src="Imgs/model4.png" style="width: 150%;">&ndash;&gt;-->
+			<!--&lt;!&ndash;<figcaption class="figure_caption">&ndash;&gt;-->
+			<!--&lt;!&ndash;شکل 16. تخصیص عبارات و نواحی&ndash;&gt;-->
+			<!--&lt;!&ndash;</figcaption>&ndash;&gt;-->
+			<!--&lt;!&ndash;</figure>&ndash;&gt;-->
+			<!--&lt;!&ndash;</section>&ndash;&gt;-->
+			<!--<section>-->
+				<!--<h3>-->
+					<!--ارائه مدل کامل-->
+				<!--</h3>-->
+				<!--<blockquote class="fragment zoom-in" data-fragment-index="1">-->
+					<!--نتایج تولید جمله برای تصاویر-->
+				<!--</blockquote>-->
+				<!--<figure class="fragment zoom-in" data-fragment-index="1">-->
+					<!--<img src="Imgs/model5.png" style="width: 150%;">-->
+					<!--<figcaption class="figure_caption">-->
+<!--<span class="cite">-->
+<!--[13]-->
+<!--</span>-->
+						<!--شکل 22. جملات تولید شده نمونه-->
+					<!--</figcaption>-->
+				<!--</figure>-->
+			<!--</section>-->
+		<!--</section>-->
+		<!--<section>-->
+			<!--<section data-background="#003333" data-state="chapter_conclusion">-->
+				<!--<h3>-->
+					<!--جمع‌بندی-->
+				<!--</h3>-->
+				<!--&lt;!&ndash;start&ndash;&gt;-->
+				<!--<div id="ninja-slider">-->
+					<!--<div class="slider-inner">-->
+						<!--<ul style="width: 100%; height: 100%;">-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_first.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_defin.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_idea.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_scene_mathods.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_feat_based.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_mrf.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_rcnn.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_rcnn_res.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_li1.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_li1_res.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_sen_mathods.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_nlg.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_rnn.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_mrnn.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_li2.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_li2_annotation.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a class="ns-img" href="Imgs/Slider/pic_li2_res.png"></a>-->
+								<!--&lt;!&ndash;<div class="caption cap1 cap2">@colerise</div>&ndash;&gt;-->
+							<!--</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--&lt;!&ndash;end&ndash;&gt;-->
+			<!--</section>-->
+			<!--<section data-background="#001111" data-state="chapter_refs">-->
+				<!--<h3>-->
+					<!--نگاهی‌ به آینده-->
+				<!--</h3>-->
+				<!--<blockquote class="fragment zoom-in" data-fragment-index="1">-->
+					<!--استفاده از-->
+					<!--<span class="fragment highlight-green" data-fragment-index="1">-->
+<!--شبکه‌های عصبی عمیق-->
+<!--</span>-->
+					<!--در هر دو چالش-->
+				<!--</blockquote>-->
+				<!--<blockquote class="fragment zoom-in" data-fragment-index="2">-->
+					<!--آموزش هر دو شبکه عمیق با هم-->
+					<!--<span class="fragment highlight-green" data-fragment-index="2">-->
+<!--در یک مرحله-->
+<!--</span>-->
+				<!--</blockquote>-->
+				<!--<blockquote class="fragment zoom-in" data-fragment-index="3">-->
+					<!--مدل‌های مبتنی بر-->
+					<!--<span class="fragment highlight-green" data-fragment-index="3">-->
+<!--نقطه توجه-->
+<!--</span>-->
+				<!--</blockquote>-->
+			<!--</section>-->
+			<!--<section data-background="#001111" data-state="chapter_refs">-->
+				<!--<h3>-->
+					<!--منابع و مراجع-->
+				<!--</h3>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[1]-->
+					<!--Ohta, Yuichi. Knowledge-based interpretation of outdoor natural color scenes. Vol. 4. Morgan Kaufmann, 1985.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[2]-->
+					<!--Smith, John R., and Chung-Sheng Li. "Image classification and querying using composite region templates." Computer Vision and Image Understanding 75.1 (1999): 165-174.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[3]-->
+					<!--Fei-Fei, Li, and Pietro Perona. "A bayesian hierarchical model for learning natural scene categories." 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR'05). Vol. 2. IEEE, 2005.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[4]-->
+					<!--Li, Li-Jia and Fei-Fei, Li. What, where and who? classifying events by scene and-->
+					<!--object recognition. in Computer Vision, 2007. ICCV 2007. IEEE 11th International-->
+					<!--Conference on, pp. 1–8. IEEE, 2007.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[5]-->
+					<!--Farhadi, Ali, Hejrati, Mohsen, Sadeghi, Mohammad Amin, Young, Peter, Rashtchian,-->
+					<!--Cyrus, Hockenmaier, Julia, and Forsyth, David. Every picture tells a story: Generating-->
+					<!--sentences from images. in Computer Vision–ECCV 2010, pp. 15–29. Springer, 2010.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[6]-->
+					<!--Fidler, Sanja, Sharma, Abhishek, and Urtasun, Raquel. A sentence is worth a thou- -->
+					<!--sand pixels. in Proceedings of the IEEE Conference on Computer Vision and Pattern-->
+					<!--Recognition, pp. 1995–2002, 2013.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[7]-->
+					<!--Girshick, Ross, Donahue, Jeff, Darrell, Trevor, and Malik, Jitendra. Rich feature hierar- -->
+					<!--chies for accurate object detection and semantic segmentation. in The IEEE Conference-->
+					<!--on Computer Vision and Pattern Recognition (CVPR), June 2014.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[8]-->
+					<!--Karpathy, Andrej, Joulin, Armand, and Li, Fei Fei F. Deep fragment embeddings for-->
+					<!--bidirectional image sentence mapping. in Advances in neural information processing-->
+					<!--systems, pp. 1889–1897, 2014.-->
+				<!--</div>-->
+			<!--</section>-->
+			<!--<section data-background="#001111" data-state="chapter_refs">-->
+				<!--<h3>-->
+					<!--منابع و مراجع-->
+				<!--</h3>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[9]-->
+					<!--Koller, Alexander, Donna Byron, Justine Cassell, Robert Dale, Johanna Moore, Jon Oberlander, and Kristina Striegnitz. "The software architecture for the first challenge on generating instructions in virtual environments." In Proceedings of the 12th Conference of the European Chapter of the Association for Computational Linguistics: Demonstrations Session, pp. 33-36. Association for Computational Linguistics, 2009.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[10]-->
+					<!--Hodosh, Micah, Peter Young, and Julia Hockenmaier. "Framing image description as a ranking task: Data, models and evaluation metrics." Journal of Artificial Intelligence Research 47 (2013): 853-899.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[11]-->
+					<!--Gupta, Ankush, and Prashanth Mannem. "From image annotation to image description." In International Conference on Neural Information Processing, pp. 196-204. Springer Berlin Heidelberg, 2012.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[12]-->
+					<!--Sutskever, Ilya, James Martens, and Geoffrey E. Hinton. "Generating text with recurrent neural networks." In Proceedings of the 28th International Conference on Machine Learning (ICML-11), pp. 1017-1024. 2011.-->
+				<!--</div>-->
+				<!--<div class="ref fragment highlight-current-green">-->
+					<!--[13]-->
+					<!--Karpathy, Andrej, and Li Fei-Fei. "Deep visual-semantic alignments for generating image descriptions." In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 3128-3137. 2015.-->
+				<!--</div>-->
+			<!--</section>-->
+	</div>
+</div>
+</div>
+<!--<div id="current_slide_cursor_container">-->
+<!--<input type="button" id="current_slide" value="صفحه نخست">-->
+<!--</div>-->
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+	// More info https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		history: true,
+		// More info https://github.com/hakimel/reveal.js#dependencies
+		dependencies: [
+			{ src: 'plugin/math/math.js',async: true},
+			{ src: 'plugin/markdown/marked.js' },
+			{ src: 'plugin/markdown/markdown.js' },
+			{ src: 'plugin/notes/notes.js', async: true },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'plugin/reveal.js-breadcrumb/breadcrumb.js', async: true }, // the last comma is supported actually! ;)
+		]
+	});
+	Reveal.addEventListener( 'ready', function( event ) {
+		// event.currentSlide, event.indexh, event.indexv
+		// Shows the slide number using default formatting
+		Reveal.configure({ slideNumber: true });
+// Slide number formatting can be configuorange using these variables:
+//  "h.v":  horizontal . vertical slide number (default)
+//  "h/v":  horizontal / vertical slide number
+//    "c":  flattened slide number
+//  "c/t":  flattened slide number / total slides
+		Reveal.configure({ slideNumber: 'c/t' });
+		Reveal.configure({backgroundTransition: "zoom"});
+		//				Reveal.addEventListener('chapter_intro' , startSlideStates(),false);
+		//				Reveal.addEventListener('chapter_intro', changeSlideState("مقدمات"),false);
+		//				Reveal.addEventListener('chapter_definition', changeSlideState("تعاریف"),true);
+		//				Reveal.addEventListener('chapter_overview', changeSlideState("اولین ایده‌ها"),false);
+		//				Reveal.addEventListener('chapter_scene', changeSlideState("درک صحنه"),false);
+		//				Reveal.addEventListener('chapter_sentence', changeSlideState("تولید جمله"),false);
+		//				Reveal.addEventListener('chapter_conclusion', changeSlideState("جمع‌بندی"),false);
+		//				Reveal.addEventListener('chapter_refs', changeSlideState("منابع"),false);
+		//				Reveal.addEventListener('eventchanged', nextSlide(event),false)
+	} );
+	var currentSlide ;
+	var currentSlideBtn ;
+	function startSlideStates() {
+		// Current slide cursor
+		var wrapper = document.querySelector( '.reveal' );
+		currentSlide = createSingletonNode(wrapper, 'div', 'current_slide',
+				'<button class="current_slide_btn" ></button>');
+		currentSlideBtn = currentSlide.querySelector('button')
+	}
+	function nextSlide(event) {
+		console.log(event.currentSlide);
+	}
+	function changeSlideState(state) {
+		currentSlideBtn.innerHTML = state ;
+	}
+	function createSingletonNode( container, tagname, classname, innerHTML ) {
+		// Find all nodes matching the description
+		var nodes = container.querySelectorAll( '.' + classname );
+		// Check all matches to find one which is a direct child of
+		// the specified container
+		for( var i = 0; i < nodes.length; i++ ) {
+			var testNode = nodes[i];
+			if( testNode.parentNode === container ) {
+				return testNode;
+			}
+		}
+		// If no node was found, create it now
+		var node = document.createElement( tagname );
+		node.classList.add( classname );
+		if( typeof innerHTML === 'string' ) {
+			node.innerHTML = innerHTML;
+		}
+		container.appendChild( node );
+		return node;
+	}
+</script>
+</body>
+</html>
